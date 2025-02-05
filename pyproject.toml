@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sistema de gerenciamento de hospedagem em hotéis"
+version = "0.1.0"
+description = ""
+authors = ["Jose-Alberto-Rodrigues-Neto <allio.professional@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pendulum = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
