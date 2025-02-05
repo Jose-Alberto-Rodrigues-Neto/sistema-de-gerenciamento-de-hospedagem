@@ -6,14 +6,8 @@ class Quarto:
         self.hospedes = hospedes
     
     def quarto_esta_cheio(self):
-        return len(self.hospedes) == self.ocupacao_total #True or False
+        return ""
 
     
     def listar_hospedes(self):
-        lotacao = self.quarto_esta_cheio()
-        if(lotacao == False):
-            print("O quarto está vazio")
-            return
-        print(f"O quarto {self.nome} está hospedado por:")
-        for hospede in self.hospedes:
-            print(hospede)
+        return ""
