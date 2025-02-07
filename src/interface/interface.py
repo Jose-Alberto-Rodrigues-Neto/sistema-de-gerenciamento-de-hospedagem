@@ -1,3 +1,6 @@
+from checkin import checkin
+from checkout import checkout
+
 # mostra usuários alocados em quartos do hotel
 def mostrar_dashboard_checkin():
     return
