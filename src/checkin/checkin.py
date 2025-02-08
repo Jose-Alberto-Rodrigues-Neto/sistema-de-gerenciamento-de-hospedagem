@@ -43,7 +43,7 @@ def fazer_checkin(lista_checkin):
             print(f"Erro: o novo hospede não pode ser alocado no quarto {novo_hospede['numero_quarto']}, pois o quarto já tem o hospede {hospede['nome']} alocado!")
             return
         
-    lista_checkin.append(novo_hospede)
+    lista_checkin[numero_quarto] = novo_hospede
 
 def fazer_agendamento():
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
