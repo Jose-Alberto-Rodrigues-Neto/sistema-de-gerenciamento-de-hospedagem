@@ -1,3 +1,5 @@
+import datetime
+
 valor_dia = 0.0 #valor em reais, precisa ser iniciado assim que o programa é iniciado
 total_quartos = 0 #valor em inteiros
 
@@ -5,7 +7,7 @@ lista_checkin = [] #lista de hospedes hospedados no momento
 lista_agendamentos = [] #lista de agendamentos
 
 # cria um dicionário de hospede
-def criar_novo_hospede(nome, numero_quarto, data_entrada, data_saida, status_hospedagem):
+def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.datetime, data_saida: datetime.datetime, status_hospedagem: bool) -> dict:
     novo_hospede = {
         "nome": nome, 
         "numero_quarto": numero_quarto, 
@@ -16,7 +18,7 @@ def criar_novo_hospede(nome, numero_quarto, data_entrada, data_saida, status_hos
     return novo_hospede
 
 #adiciona o hospede na lista de check-in
-def fazer_checkin(lista_checkin):
+def fazer_checkin(lista_checkin: list) -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     if(numero_quarto > total_quartos):
@@ -45,7 +47,7 @@ def fazer_checkin(lista_checkin):
         
     lista_checkin[numero_quarto] = novo_hospede
 
-def fazer_agendamento():
+def fazer_agendamento() -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     data_entrada = input("Adicione a data em que o hospede irá fazer check-in: ")
