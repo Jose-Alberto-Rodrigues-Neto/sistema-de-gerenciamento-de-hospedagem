@@ -6,6 +6,10 @@ total_quartos = 0 #valor em inteiros
 lista_checkin = [] #lista de hospedes hospedados no momento
 lista_agendamentos = [] #lista de agendamentos
 
+def popular_listas(total_quartos: int, lista: list):
+    for i in range(total_quartos):
+        lista.append(None)
+
 # cria um dicionário de hospede
 def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.datetime, data_saida: datetime.datetime, status_hospedagem: bool) -> dict:
     novo_hospede = {
