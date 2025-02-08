@@ -2,7 +2,7 @@ from checkin import checkin
 lista_checkout = []
 
 #função para tirar o hospede da lista de hospedes e adicinar na lista de checkout
-def fazer_checkout(nome_hospede, quarto_hospede):
+def fazer_checkout(nome_hospede: dict, quarto_hospede: int) -> None:
     if len(checkin.lista_checkin) == 0:
         print("Não existe hospedes no hotel")
     
@@ -17,6 +17,6 @@ def fazer_checkout(nome_hospede, quarto_hospede):
     lista_checkout.append() #adicionar o hospede a ser alocado na lista de checkout
 
 
-def calcular_estadia(hospede):
+def calcular_estadia(hospede: dict) -> float:
     ##calcular estadia
     return 0.0 #retronar valor em double
