@@ -23,9 +23,11 @@ def fazer_checkin(lista_checkin: list) -> None:
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     if(numero_quarto > total_quartos):
         print("Não temos esse quarto em nosso hotel! Os quartos livres estão abaixo:")
+        # TODO
         # Mostrar quartos livres
         numero_quarto = input("Escolha o número do quarto: ")
 
+    # TODO
     # Verificar se o quarto está com hospede no momento
     # Caso tenha, perguntar se quer fazer um agendamento
     data_entrada = input("Adicione a data em que o hospede irá fazer check-in: ")
@@ -51,6 +53,7 @@ def fazer_agendamento() -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     data_entrada = input("Adicione a data em que o hospede irá fazer check-in: ")
+    # TODO
     # Verificar se existe algum agendamento no mesmo quarto com a mesma data
     # Caso tenha algum agendamento na mesma data, mostrar a próxima data possível criar um agendamento
     data_saida = input("Adicione a data em que o hospede irá fazer check-out: ")
