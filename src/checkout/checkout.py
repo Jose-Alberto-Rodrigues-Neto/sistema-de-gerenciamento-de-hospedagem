@@ -2,19 +2,6 @@ from checkin import checkin
 
 lista_checkout = []
 
-hospede1 = {
-    "nome": "João",
-    "quarto": 101,
-    "data_entrada": "05/05/2022",
-    "data_saida": "10/05/2022"
-}
-
-# Add the guest to the check-in list
-checkin.lista_checkin.append(hospede1)
-
-# Room number of the guest to check out
-quarto_hospede = 101
-
 #função para tirar o hospede da lista de hospedes e adicinar na lista de checkout
 def fazer_checkout(quarto_hospede: int) -> None:
     #caso 1: não há hospedes
