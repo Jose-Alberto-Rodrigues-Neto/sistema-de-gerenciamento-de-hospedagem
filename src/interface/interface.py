@@ -1,6 +1,10 @@
 from checkin import checkin
 from checkout import checkout
 
+lista_checkin = checkin.lista_checkin
+lista_agendamentos = checkin.lista_agendamentos
+lista_checkout = checkout.lista_checkout
+
 # mostra usuários alocados em quartos do hotel
 def mostrar_dashboard_checkin():
     return
