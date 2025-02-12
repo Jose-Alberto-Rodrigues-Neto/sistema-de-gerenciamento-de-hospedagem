@@ -94,18 +94,7 @@ Saída de Hóspedes (Check-out)
 
 # Como rodar o projeto?
 
-Instale as dependências usando o poetry
-
-```python
-    poetry install
-```
-Rode o porjeto usando o poetry
-
-```python
-    poetry run python src/main.py
-```
-
-ou, caso não tenha o poetry baixado
+Quando o código estiver pronto utilize o código abaixo para rodar o projeto
 
 ```python
     python src/main.py

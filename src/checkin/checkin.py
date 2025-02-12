@@ -1,6 +1,6 @@
 import datetime
 
-valor_dia = 0.0 #valor em reais, precisa ser iniciado assim que o programa é iniciado
+valor_diaria = 0.0 #valor em reais, precisa ser iniciado assim que o programa é iniciado
 total_quartos = 0 #valor em inteiros
 
 lista_checkin = [] #lista de hospedes hospedados no momento
