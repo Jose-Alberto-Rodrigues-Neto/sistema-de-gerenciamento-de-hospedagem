@@ -6,6 +6,18 @@ total_quartos = 0 #valor em inteiros
 lista_checkin = [] #lista de hospedes hospedados no momento
 lista_agendamentos = [] #lista de agendamentos
 
+def quartos_livres (lista_checkin, total_quartos):
+    numero_quarto=0
+    nenhum_livre = True
+    
+    while numero_quarto < total_quartos:
+        if lista_checkin[numero_quarto] is None:
+            print(f"Quarto {numero_quarto} está livre.")
+            nenhum_livre = False  
+        numero_quarto += 1  
+    
+    if nenhum_livre:
+        print(" Todos estão ocupados.")
 # cria um dicionário de hospede
 def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.datetime, data_saida: datetime.datetime, status_hospedagem: bool) -> dict:
     novo_hospede = {
@@ -23,7 +35,7 @@ def fazer_checkin(lista_checkin: list) -> None:
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     if(numero_quarto > total_quartos):
         print("Não temos esse quarto em nosso hotel! Os quartos livres estão abaixo:")
-        # Mostrar quartos livres
+        quartos_livres(lista_checkin, total_quartos)
         numero_quarto = input("Escolha o número do quarto: ")
 
     # Verificar se o quarto está com hospede no momento
