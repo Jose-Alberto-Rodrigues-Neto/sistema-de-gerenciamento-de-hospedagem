@@ -21,6 +21,25 @@ def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.dat
     }
     return novo_hospede
 
+#Verifica se a data está disponível para o hóspede se hospedar.
+def verificar_agendamento_na_data(numero_quarto: int, data_desejada: datetime.datetime) -> bool:
+   
+    for agendamento in lista_agendamentos:
+        if agendamento["numero_quarto"] == numero_quarto:
+     
+            if agendamento["data_entrada"] <= data_desejada < agendamento["data_saida"]:
+                return True  
+    return False  
+
+    data_desejada = datetime.datetime.strptime("15-02-2025", "%d-%m-%Y")
+numero_quarto = 2
+
+if verificar_agendamento_na_data(numero_quarto, data_desejada):
+    print(f"Quarto {numero_quarto} já está reservado para a data {data_desejada.strftime('%d-%m-%Y')}.")
+else:
+    print(f"Quarto {numero_quarto} está disponível para a data {data_desejada.strftime('%d-%m-%Y')}.")
+
+
 #adiciona o hospede na lista de check-in
 def fazer_checkin(lista_checkin: list) -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
