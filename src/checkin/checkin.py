@@ -10,6 +10,19 @@ def popular_listas(total_quartos: int, lista: list):
     for i in range(total_quartos):
         lista.append(None)
 
+def mostrar_quartos_livres(lista_checkin, total_quartos):
+    numero_quarto=0
+    nenhum_livre = True
+    
+    while numero_quarto < total_quartos:
+        if lista_checkin[numero_quarto] is None:
+            print(f"Quarto {numero_quarto} está livre.")
+            nenhum_livre = False  
+        numero_quarto += 1  
+    
+    if nenhum_livre:
+        print(" Todos estão ocupados.")
+
 # cria um dicionário de hospede
 def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.datetime, data_saida: datetime.datetime, status_hospedagem: bool) -> dict:
     novo_hospede = {
@@ -39,13 +52,14 @@ def fazer_checkin(lista_checkin: list) -> None:
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     if(numero_quarto > total_quartos):
         print("Não temos esse quarto em nosso hotel! Os quartos livres estão abaixo:")
-        # TODO
-        # Mostrar quartos livres
+        mostrar_quartos_livres(lista_checkin, total_quartos)
         numero_quarto = input("Escolha o número do quarto: ")
-
-    # TODO
-    # Verificar se o quarto está com hospede no momento
-    # Caso tenha, perguntar se quer fazer um agendamento
+    if lista_checkin[quarto_numero-1] is not None:
+        print("quarto indisponível no momento, gostaria de fazer agendamento?")
+    resp = input()
+    if resp.lower() == "sim":
+        fazer_agendamento()
+        return
     data_entrada = input("Adicione a data em que o hospede irá fazer check-in: ")
     data_saida = input("Adicione a data em que o hospede irá fazer check-out: ")
     status_hospedagem = True
@@ -82,3 +96,4 @@ def fazer_agendamento() -> None:
     novo_agendamento = criar_novo_hospede(nome, numero_quarto, data_entrada, data_saida, status_hospedagem)
 
     lista_agendamentos.append(novo_agendamento) # Cria agendamento
+
