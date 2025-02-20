@@ -1,10 +1,14 @@
 import datetime
 
-valor_dia = 0.0 #valor em reais, precisa ser iniciado assim que o programa é iniciado
+valor_diaria = 0.0 #valor em reais, precisa ser iniciado assim que o programa é iniciado
 total_quartos = 0 #valor em inteiros
 
 lista_checkin = [] #lista de hospedes hospedados no momento
 lista_agendamentos = [] #lista de agendamentos
+
+def popular_listas(total_quartos: int, lista: list):
+    for i in range(total_quartos):
+        lista.append(None)
 
 def mostrar_quartos_livres(lista_checkin, total_quartos):
     numero_quarto=0
@@ -30,6 +34,18 @@ def criar_novo_hospede(nome: str, numero_quarto: int, data_entrada: datetime.dat
     }
     return novo_hospede
 
+#Verifica se a data está disponível para o hóspede se hospedar.
+def verificar_agendamento_na_data(numero_quarto: int, data_desejada: datetime.datetime) -> bool:
+   
+    for agendamento in lista_agendamentos:
+        if agendamento["numero_quarto"] == numero_quarto:
+     
+            if agendamento["data_entrada"] <= data_desejada < agendamento["data_saida"]:
+                return True  
+    return False  
+
+    data_desejada = datetime.datetime.strptime("15-02-2025", "%d-%m-%Y")
+
 #adiciona o hospede na lista de check-in
 def fazer_checkin(lista_checkin: list) -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
@@ -39,7 +55,7 @@ def fazer_checkin(lista_checkin: list) -> None:
         mostrar_quartos_livres(lista_checkin, total_quartos)
         numero_quarto = input("Escolha o número do quarto: ")
     if lista_checkin[quarto_numero-1] is not None:
-    print("quarto indisponível no momento, gostaria de fazer agendamento?")
+        print("quarto indisponível no momento, gostaria de fazer agendamento?")
     resp = input()
     if resp.lower() == "sim":
         fazer_agendamento()
@@ -67,11 +83,17 @@ def fazer_agendamento() -> None:
     nome = input("Adicione o nome do hospede que vai ser hospedado: ")
     numero_quarto = input("Adicione o número do quarto que o usuário vai ser hospedado: ")
     data_entrada = input("Adicione a data em que o hospede irá fazer check-in: ")
-    # Verificar se existe algum agendamento no mesmo quarto com a mesma data
-    # Caso tenha algum agendamento na mesma data, mostrar a próxima data possível criar um agendamento
+    if verificar_agendamento_na_data(numero_quarto, data_desejada):
+        print(f"Quarto {numero_quarto} já está reservado para a data {data_desejada.strftime('%d-%m-%Y')}.")
+        # TODO
+        # Caso tenha algum agendamento na mesma data, mostrar a próxima data possível criar um agendamento
+    else:
+        print(f"Quarto {numero_quarto} está disponível para a data {data_desejada.strftime('%d-%m-%Y')}.")
+        
     data_saida = input("Adicione a data em que o hospede irá fazer check-out: ")
     status_hospedagem = False
 
     novo_agendamento = criar_novo_hospede(nome, numero_quarto, data_entrada, data_saida, status_hospedagem)
 
     lista_agendamentos.append(novo_agendamento) # Cria agendamento
+
