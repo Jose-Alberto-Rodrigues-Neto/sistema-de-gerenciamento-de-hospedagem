@@ -14,6 +14,16 @@ def mostrar_dashboard_checkout():
     return
 
 def mostrar_dashboard_agendamentos():
+    if not lista_agendamentos:
+        print("Não temos agendamentos ainda, volte mais tarde!!")
+        return
+    
+    print(" _Hospedes agendados!!_")
+    for hospede in lista_agendamentos:
+        print(f"Nome: {hospede['nome']}, "
+              f"Data de entrada: {hospede['data_entrada']}, "
+              f"Estará no quarto: {hospede['numero_quarto']}, "
+              f"Sairá dia: {hospede['data_saida']}")
     return
 
 def menu():
